@@ -73,3 +73,4 @@ Route::get('nguoidung','PageController@getNguoidung');
 Route::post('nguoidung','PageController@postNguoidung');
 Route::get('dangki', 'PageController@getDangki');
 Route::post('dangki','PageController@postDangki');
+Route::post('timkiem','PageController@postTimkiem');

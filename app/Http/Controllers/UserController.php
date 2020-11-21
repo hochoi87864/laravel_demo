@@ -48,7 +48,7 @@ class UserController extends Controller
     public function postSua(Request $request,$id){
         $this->validate($request,[
             "Name"  => "required|min:3",
-            "Email" => "required|email|unique:users,email",
+            "Email" => "required|email",
             "Password" => "required|min:3|max:32",
             "RePassword" => "required|same:Password"
         ],[
@@ -56,7 +56,6 @@ class UserController extends Controller
             "Name.min"  => "Tên người dùng phải nhập 3 ký tự trở lên",
             "Email.required" => "Bạn chưa nhập email !!!",
             "Email.email"   => "Bạn chưa nhập đúng định dạng email !!!",
-            "Email.unique" => "Email đã có người đăng kí !!!",
             "Password.min" => "Mật khẩu phải có ít nhất 3 ký tự !!!",
             "Password.max" => "Mật khẩu nhiều nhất là 32 ký tự !!!",
             "Password.required" => "Bạn chưa nhập password !!!",

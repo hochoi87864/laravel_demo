@@ -30,8 +30,8 @@ class PageController extends Controller
     }
     public function tintuc($id){
         $tintuc = TinTuc::find($id);
-        $tinnoibat = TinTuc::where('NoiBat',1)->take(4)->get();
-        $tinlienquan = TinTuc::where('idLoaiTin',$tintuc->idLoaiTin)->take(4)->get();
+        $tinnoibat = TinTuc::where('NoiBat',1)->where('id','!=',$tintuc->id)->take(4)->get();
+        $tinlienquan = TinTuc::where('idLoaiTin',$tintuc->idLoaiTin)->where('id','!=',$tintuc->id)->take(4)->get();
         return view('pages.tintuc',['tintuc'=>$tintuc,'tinnoibat'=>$tinnoibat,'tinlienquan'=>$tinlienquan]);
     }
     public function getDangNhap(){
@@ -113,5 +113,10 @@ class PageController extends Controller
         $user->password = bcrypt($request->Password);
         $user->save();
         return redirect('dangki')->with("thongbao","Xin chúc mừng, Bạn đã đăng kí thành công !!!");
+    }
+    public function postTimkiem(Request $request){
+        $tukhoa = $request->tukhoa;
+        $tintuc = TinTuc::where('TieuDe','like',"%$tukhoa%")->orWhere('TomTat','like',"%$tukhoa%")->orWhere('NoiDung','like',"%$tukhoa%")->take(30)->paginate(5);
+        return view('pages.timkiem',['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
     }
 }

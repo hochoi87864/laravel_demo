@@ -13,7 +13,7 @@
                 <div class="col-md-9">
                     <div class="panel panel-default">            
                         <div class="panel-heading" style="background-color:#337AB7; color:white;" >
-                            <h2 style="margin-top:0px; margin-bottom:0px;">Laravel Tin Tức</h2>
+                            <h2 style="margin-top:0px; margin-bottom:0px;"></h2>
                         </div>
     
                         <div class="panel-body">
@@ -33,7 +33,7 @@
                                         ?>
                                         <div class="col-md-8 border-right" style="min-height: 250px;">
                                             <div class="col-md-5">
-                                                <a href="detail.html">
+                                                <a href="tintuc/{{$tintuc1['id']}}/{{$tintuc1['TieuDeKhongDau']}}.trungle">
                                                 <img class="img-responsive" src="upload/tintuc/{{$tintuc1['Hinh']}}" alt="">
                                                 </a>
                                             </div>
